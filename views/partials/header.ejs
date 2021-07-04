@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>FRAMEWORK TT</title>
+  <meta charset="utf-8">
+  <link rel='icon' href="/css/favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;900" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link id="theme" rel="stylesheet" type="text/css" href="/css/light-theme.css">
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <p class="navbar-brand">FRAMEWORK TT</p>
+      </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li id="home"><a href="/">HOME</a></li>
+          <li id="about"><a href="/about">ABOUT</a></li>
+          <li><a><button id="theme-toggle" > Switch mode</button></a></li>
+        </ul>
+        
+    </div>
+  </nav>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeStylesheet = document.getElementById('theme');
+      const storedTheme = localStorage.getItem('theme');
+      if(storedTheme){
+          themeStylesheet.href = storedTheme;
+      }
+      const themeToggle = document.getElementById('theme-toggle');
+      themeToggle.addEventListener('click', () => {
+          // if it's light -> go dark
+          if(themeStylesheet.href.includes('light')){
+              themeStylesheet.href = '/css/dark-theme.css';
+          } else {
+              // if it's dark -> go light
+              themeStylesheet.href = '/css/light-theme.css';
+
+          }
+          localStorage.setItem('theme',themeStylesheet.href) 
+      })
+    })
+</script>
+<body>
+    <div class="container">

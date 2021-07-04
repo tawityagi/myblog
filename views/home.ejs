@@ -1,0 +1,16 @@
+<%- include("partials/header") -%>
+
+<h1  class="big-heading">Home</h1>
+
+<h5> <%= startingContent %> </h5>
+
+<% if(posts){ %> 
+    <% posts.forEach(element => { %>
+        <h1  class="big-heading"> <%= element.title %> </h1>
+        <h4> <%= element.content.substr(4,104) + " ..." %> 
+        <a href="/posts/<%=element._id%>">Read More</a>
+        </h4>
+    <%  }); %>
+<%  } %>
+ 
+<%- include("partials/footer") -%>
